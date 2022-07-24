@@ -1,4 +1,4 @@
-# quickCharts
+# quickChart
 ### 07.25.2022
 ### James Jewitt 
 ### [LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783) |  [Trello](https://trello.com/b/Mc0uEhTG/quickchart) 
