@@ -1,4 +1,4 @@
-# quickChart
+# quickChart 
 ### 07.25.2022
 ### James Jewitt 
 ### [LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783) |  [Trello](https://trello.com/b/Mc0uEhTG/quickchart) 
@@ -24,7 +24,7 @@
 ![Image1](ERD.png)
 <br /><br />
 ###  Frontend: React 
-![Image2](ComponentHierachyDiagram.png.png)
+![Image2](ComponentHierachyDiagram.png)
 <br /><br />
 ###  Original File Structure 
 ![Image3](fileStructure.png)
