@@ -1,9 +1,10 @@
 const mongoose = require( 'mongoose' )
 
-mongoose.connect( 'mongodb://127.0.0.1:27017/dataDb'.then( ( ) => {
+mongoose.connect( 'mongodb://127.0.0.1:27017/dataDb' ).then( ( ) => {
     console.log( 'Successfully connected to MongoDB' )
-})).catch( ( e ) => {
+}).catch( ( e ) => {
     console.log( 'Connection Error', e.message ) 
 })
 
+const db = mongoose.connection
 module.exports = db 
