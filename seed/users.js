@@ -3,6 +3,7 @@ const User = require( '../models/user' )
 db.on( 'error', console.error.bind( console, 'MongoDB Connection Error:' ))
 
 const main = async (  ) => {
+    User.collection.drop(  )
 
     const users = [
         {

@@ -3,6 +3,7 @@ const Comment = require( '../models/comment' )
 db.on( 'error', console.error.bind( console, 'MongoDB Connection Error:' ))
 
 const main = async (  ) => {
+    Comment.collection.drop(  )
 
     const comments = [
         {

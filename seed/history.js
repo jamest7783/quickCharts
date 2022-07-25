@@ -3,6 +3,7 @@ const History = require( '../models/history' )
 db.on( 'error', console.error.bind( console, 'MongoDB Connection Error:' ))
 
 const main = async (  ) => {
+    History.collection.drop(  )
 
     const history = [ 
                       'chart', 

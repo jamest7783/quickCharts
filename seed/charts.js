@@ -3,6 +3,7 @@ const Chart = require( '../models/chart' )
 db.on( 'error', console.error.bind( console, 'MongoDB Connection Error:' ))
 
 const main = async (  ) => {
+    Chart.collection.drop(  ) 
 
     const charts = [
         {
