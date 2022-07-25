@@ -9,7 +9,7 @@ router.get(    '/charts/:id',       chartController.viewChart   )
 router.post(   '/create-chart',     chartController.createChart )
 router.put(    '/update-chart/:id', chartController.updateChart )
 router.delete( '/delete-chart/:id', chartController.deleteChart )
-router.get(    '/find',      chartController.findChart   )
+router.get(    '/find',             chartController.findChart   )
 
 
 module.exports = router; 

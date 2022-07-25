@@ -23,9 +23,7 @@ const createChart = async ( req, res ) => {
     try {
         const chart = await new Chart( req.body )  
         await chart.save( )
-        return res.status( 201 ).json({
-            chart
-        })
+        return res.status( 201 ).json({ chart })
     } catch ( error ) {
         return res.status( 500 ).json( error.message )     
     }
