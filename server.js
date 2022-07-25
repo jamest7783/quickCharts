@@ -9,6 +9,7 @@ const app = express( )
 app.use( express.json( ) )
 app.use( cors( ) )
 app.use( logger( 'dev' ) )
+
 app.use( '/', routes );
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
