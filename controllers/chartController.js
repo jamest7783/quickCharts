@@ -50,7 +50,7 @@ const updateChart = async ( req, res ) => {
         const chart = await Chart.findByIdAndUpdate( id, 
                                                      req.body, 
                                                      { new: true })
-        res.status( 200 ).json( chart )
+        res.status( 200 ).json({ chart })
     } catch ( error ) {
         return res.status( 500 ).send( error.message )
     }
@@ -58,16 +58,14 @@ const updateChart = async ( req, res ) => {
 
 const findChart = async ( req, res ) => {
     try {
-        const { input } = req.body               
-        const chart = await Chart.find({ $or:[{ title: input },
-                                              { title: input },
-                                              { title: input }]})
-        res.status( 200 ).json( chart )
+        const { title, xLabel, yLabel, creator } = req.query
+        const charts = await Chart.find({ $or: [{ title: title },
+                                                { xLabel: xLabel},
+                                                { yLabel: yLabel} ]})  
+        return res.status( 200 ).json({ charts })
     } catch ( error ) {
         return res.status( 500 ).send( error.message )
     }
-    
-
 }
 
 module.exports = {

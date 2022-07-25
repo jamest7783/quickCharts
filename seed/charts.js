@@ -7,19 +7,19 @@ const main = async (  ) => {
 
     const charts = [
         {
-            title: 'this is a title',
+            title: 'newTitle',
             data: [ ['x','y'], [ 'x','y'] ],
             axis: {
-                xLabel: 'xLabel Name',
-                yLabel: 'yLabel Name'
+                xLabel: 'xLabel_Name',
+                yLabel: 'yLabel_Name'
             },
         },
         {
-            title: 'this is a title2',
+            title: 'James',
             data: [ ['x','y'], [ 'x','y'] ],
             axis: {
-                xLabel: 'x2Label Name',
-                yLabel: 'y2Label Name'
+                xLabel: 'x2Label_Name',
+                yLabel: 'y2Label_Name'
             },
         }
     ]
