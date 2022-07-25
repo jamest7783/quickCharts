@@ -16,7 +16,7 @@
 * Express
 * React
 * Node.js
-<br /><br />
+<br /><br /> 
 
 ***
 ###  <br /><br />
@@ -24,7 +24,7 @@
 ![Image1](ERD.png)
 <br /><br />
 ###  Frontend: React 
-![Image2](ComponentHierachyDiagram.png)
+![Image2](ComponentHierarchyDiagram.png)
 <br /><br />
 ###  Original File Structure 
 ![Image3](fileStructure.png)
