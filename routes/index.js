@@ -13,7 +13,4 @@ router.get( '/charts', async ( req, res ) => {
 //     res.json( chart )
 // })
 
- 
-
- 
 module.exports = router;
