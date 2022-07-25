@@ -5,11 +5,7 @@ db.on( 'error', console.error.bind( console, 'MongoDB Connection Error:' ))
 const main = async (  ) => {
     History.collection.drop(  )
 
-    const history = [ 
-                      'chart', 
-                      'chart1', 
-                      'chart2'  
-                    ] 
+    const history = [{  }]
     await History.create( history )
     console.log( 'Created history' )
 

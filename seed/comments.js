@@ -7,11 +7,9 @@ const main = async (  ) => {
 
     const comments = [
         {
-            // creator: { type: Schema.Types.ObjectId, ref: 'user_id' },
             comment: 'this is a comment'
         },
         {
-            // creator: { type: Schema.Types.ObjectId, ref: 'user_id' },
             comment: 'this is a comment2'
         }
 
