@@ -1,14 +1,15 @@
 const { Router } = require('express')
 const router = Router( )
-const controllers = require( '../controllers/index' )
+const { chartController } = require( '../controllers' )
 const Chart = require( '../models/chart.js' )
 
 
-router.get(    '/charts',           controllers.getCharts   )
-router.get(    '/charts/:id',       controllers.findChart   )
-router.post(   '/create-chart/:id', controllers.createChart )
-router.put(    '/update-chart/:id', controllers.updateChart )
-router.delete( '/delete-chart/:id', controllers.deleteChart )
+router.get(    '/charts',           chartController.getCharts   )
+router.get(    '/charts/:id',       chartController.viewChart   )
+router.post(   '/create-chart',     chartController.createChart )
+router.put(    '/update-chart/:id', chartController.updateChart )
+router.delete( '/delete-chart/:id', chartController.deleteChart )
+router.get(    '/charts/find',      chartController.findChart   )
 
 
 module.exports = router; 
