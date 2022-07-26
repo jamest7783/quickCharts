@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom'
+import Form from './Form'
+
 const Create = () => {
 
     return (
         <div>
-            <h1>DataForm</h1>
+            <Form /> 
             <h1>ChartPad</h1>
-            <h1>Present</h1>
+            <Link to='/view'>View</Link>
         </div>
     )
 
