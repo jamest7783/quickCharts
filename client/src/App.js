@@ -1,21 +1,25 @@
+import logo from './logo.svg';
+import './App.css';
+
+import react from 'react'
+import { useState } from 'react'
 import './App.css'
-import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 
-
 function App() {
   return (
-    <div className="app">
+    <div className="App">
       <header>
+        {/* Import Nav here */}
       </header>
       <main>
         <Routes>
-          <Route/>
+          <Route path="/" element={ <Home /> } />
         </Routes>
       </main>
     </div>
-  );
+  )
 }
 
 export default App;
