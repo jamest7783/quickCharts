@@ -8,7 +8,7 @@ const Create = () => {
         <div>
             <Form /> 
             <Plot />
-            <Link to='/view'>View</Link>
+            <Link to='/view'>View Plot Full-Screen</Link>
         </div>
     )
 
