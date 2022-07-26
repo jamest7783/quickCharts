@@ -6,7 +6,8 @@ const Search = (  ) => {
         <div>
             <Link to='/library'>?</Link>
             <form>
-                <input>
+                <input placeholder='search by data or axis'>
+                
                 </input>
             </form>
 

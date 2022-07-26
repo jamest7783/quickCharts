@@ -1,14 +1,13 @@
+import Search from "./Search"
+import Projects from "./Projects"
 
 const Library = (  ) => {
 
 
     return (
         <div>
-            <h5>project</h5>
-            <h5>project</h5>
-            <h5>project</h5>
-            <h5>project</h5>
-            <h5>project</h5>
+            <Search/>
+            <Projects/>
         </div>
     )
 }
