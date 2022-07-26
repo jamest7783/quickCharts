@@ -6,6 +6,9 @@ import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
+import Create from './components/Create';
+import About from './components/About';
+import Library from './components/Library';
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={ <Home /> } />
+          <Route path='/library' element={ <Library /> } /> 
+          <Route path="/create" element={ <Create /> } />
+          <Route path="/about" element={ <About /> } />
         </Routes>
       </main>
     </div>

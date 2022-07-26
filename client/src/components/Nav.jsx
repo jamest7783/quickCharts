@@ -5,10 +5,9 @@ const Nav = (  ) => {
     return (
         <div>
             <nav>
-                {/* <Search/> */}<h4>Search</h4>
-                <Link to='/'>got data?</Link>
-                <Link to='/'>About</Link>
-
+                {/* <Search/> */}<h4>[Search Component, has link to projects within]</h4>
+                <Link to='/create'>got data?</Link>
+                <Link to='/about'>About</Link>
             </nav>
         </div>
     )
