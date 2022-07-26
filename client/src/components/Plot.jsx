@@ -1,12 +1,15 @@
-
-const Plot = () => {
+import React from 'react'
+import { Bar } from 'react-chartjs-2'
+import { Chart as ChartJS  } from 'chart.js/auto'
+const Plot = ({ chartData }) => {
 
     return (
-        <div>
+
+        <div className="plot">
             <h1>plot for building chart</h1>
-            <canvas>
-                
-            </canvas>
+            <div>
+                <Bar data={ chartData }/>
+            </div>
         </div>
     )
 

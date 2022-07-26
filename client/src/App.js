@@ -1,6 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
-
 import react from 'react'
 import { useState } from 'react'
 import './App.css'
@@ -33,8 +30,8 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={ <Home /> } />
-          <Route path='/library' element={ <Library charts={charts}/> } /> 
+          <Route path="/" element={ <Home charts={ charts }/> } />
+          <Route path='/library' element={ <Library charts={ charts }/> } /> 
           <Route path="/create" element={ <Create /> } />
           <Route path="/about" element={ <About /> } />
           <Route path="/view" element={ <View /> } />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Library = ( props ) => {
 
-    console.log( "IN LIBRARY=",props.charts )
+    console.log( "In LIBRARY=",props.charts )
     return (
         <div>
             <Search/>

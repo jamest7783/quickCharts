@@ -1,7 +1,9 @@
 import Nav from './Nav'
 import Search from './Search'
 
-const Home = (  ) => {
+const Home = ( props ) => {
+
+    console.log( "In HOME=",props.charts )
 
     return (
         <div>
