@@ -7,7 +7,7 @@ const Home = (  ) => {
         <div>
             <h2>quickChart</h2>
             <Search/>
-            <Nav/>
+            <Nav />
         </div>
     )
 }

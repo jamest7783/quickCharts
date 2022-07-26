@@ -6,7 +6,7 @@ const Post = (  ) => {
     return (
         <div>
             <Link to='/view'>x</Link>
-            single post
+            single post w/ like, comment
         </div>
     )
 }
