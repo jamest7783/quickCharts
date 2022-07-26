@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import Form from './Form'
+import Plot from './Plot'
 
 const Create = () => {
 
     return (
         <div>
             <Form /> 
-            <h1>ChartPad</h1>
+            <Plot />
             <Link to='/view'>View</Link>
         </div>
     )
