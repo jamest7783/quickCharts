@@ -9,6 +9,7 @@ const Create = () => {
             <Form /> 
             <Plot />
             <Link to='/view'>View Plot Full-Screen</Link>
+            <Link to='/'>back to Home</Link>
         </div>
     )
 

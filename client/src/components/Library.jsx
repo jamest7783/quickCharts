@@ -1,5 +1,6 @@
 import Search from "./Search"
 import Projects from "./Projects"
+import { Link } from 'react-router-dom'
 
 const Library = (  ) => {
 
@@ -8,6 +9,7 @@ const Library = (  ) => {
         <div>
             <Search/>
             <Projects/>
+            <Link to='/'>back to Home</Link>
         </div>
     )
 }

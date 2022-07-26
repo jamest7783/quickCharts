@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 
 const View = (  ) => {
 
@@ -7,6 +7,7 @@ const View = (  ) => {
 
             <h1>viewing single Post (post) full-screen</h1>
             <h4>comment</h4>
+            <Link to='/'>back to Home</Link>
         </div>
     )
 }
