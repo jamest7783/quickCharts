@@ -1,99 +1,121 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import Plot from './Plot'
 import axios from 'axios'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS  } from 'chart.js/auto'
-import e from 'cors'
 //import UserData from './Data.js'
 
 const Create = (  ) => {
 
-
+    /* connecting to user generated chart created in last page, 
+       setting it to 'chart' variable */
     const [ chart, setChart ] = useState({})
-    useEffect( ( ) => {
-        async function chartConnect (  ) {
-            const res = await axios.get('http://localhost:3001/charts')
-            setChart( res.data.charts[0] )
-        } chartConnect( )
-    },[ ] )
+    async function chartConnect( ) {
+        const res = await axios.get('http://localhost:3001/charts')
+        setChart( res.data.barCharts[0])
+    }
+    useEffect( () => { 
+        chartConnect( ) 
+    },[ ])
+    console.log( "data", chart )
 
-    const [count, setCount] = useState(0);
-    const [count2, setCount2] = useState(0);
-    const [title, setTitle] = useState('');
+    let temp = { labels: chart.labels, datasets: chart.datasets } 
+    console.log( 'temp = ', temp)
 
-
-    const UserData = [
-        {
-            id: 1,
-            year: 2016,
-            userGain: 80000,
-            userLost: 823
-        },
-        {
-            id: 2,
-            year: 2017,
-            userGain: 60000,
-            userLost: 523
-        },
-        {
-            id: 3,
-            year: 2018,
-            userGain: 50000,
-            userLost: 323
-        },
-        {
-            id: 4,
-            year: 2019,
-            userGain: 110000,
-            userLost: 123
-        }
-    ]
+    const [ title, setTitle ] = useState( 'title' )
+    const [ coors, setCoors ] = useState([ ['Jan',0],['Feb',1],['March',2] ])
 
 
-    const [ userData, setUserData ] = useState({
-        labels: UserData.map((data) => data.year),
-        datasets: [{
-            label: "this is the title",
-           data: UserData.map((data) => data.userGain)
-        }]
-    })
+    // const [ temp, setTemp ] = useState({})
+    // const [ data, setData ] = useState({
+    //     labels: [],
+    //     datasets: [{
+    //         label: '',
+    //         data: []
+    //     }]
+    // })
+    // const [count, setCount] = useState(0);
+    // const [count2, setCount2] = useState(0);
+    // const [title, setTitle] = useState('');
+    // const UserData = [
+    //     {
+    //         id: 1,
+    //         year: 2016,
+    //         userGain: 80000,
+    //         userLost: 823
+    //     },
+    //     {
+    //         id: 2,
+    //         year: 2017,
+    //         userGain: 60000,
+    //         userLost: 523
+    //     },
+    //     {
+    //         id: 3,
+    //         year: 2018,
+    //         userGain: 50000,
+    //         userLost: 323
+    //     },
+    //     {
+    //         id: 4,
+    //         year: 2019,
+    //         userGain: 110000,
+    //         userLost: 123
+    //     }
+    // ]
 
-    const [ chartData, setChartData ] = useState({
-        labels: [],
-        datasets: [{
-            label: '',
-            data: []
-        }]
-    })
+
+    // const [ userData, setUserData ] = useState({
+    //     labels: UserData.map((data) => data.year),
+    //     datasets: [{
+    //         label: "this is the title",
+    //        data: UserData.map((data) => data.userGain)
+    //     }]
+    // })
+
+    // const [ chartData, setChartData ] = useState({
+    //     labels: [],
+    //     datasets: [{
+    //         label: 'title',
+    //         data: []
+    //     }]
+    // })
 
    
-    
-    const updateChart = ( e ) => {
-        e.preventDefault()
-    }
+    // const handleClick = ( e  ) => {
+    //     e.preventDefault()
+
+        
+
+    //     setData( { datasets.label : title } )
+    //     setCount(count+1)
+    // }
 
 
-    
-
-    
-    const handleClick = ( e  ) => {
-        console.log(e.target.value)
-        setCount(count+1)
-        e.preventDefault()
-    }
+    // function handleChange( e )  {
+    //     setTitle({
+    //         ...data,
+    //         [e.target.name]: e.target.value
+    //         });
+    //     }
 
 
-    useEffect( () => {
-        console.log("Effective useEffect",  count)
-        setChartData( {
-            labels: [],
-            datasets: [{
-                label: title,
-                data: []
-            }]
-        })
-    },[  count, count2 ])
+
+
+    // useEffect( () => {
+    //     console.log("Effective useEffect",  count)
+    //     setChartData( {
+    //         labels: [ jan, feb, marhc],
+    //         datasets: [{
+    //             label: 'title',
+    //             data: [50, 60, 40]
+    //         }]
+    //     })
+    // },[  count, count2 ])
+
+    // const updateChart = () => {
+    //     setChart(chartdata )
+    //  }
 
     
 
@@ -102,16 +124,18 @@ const Create = (  ) => {
         <div className='create'>
             <div className="form">
                     <div className="input-data"> 
-                        <form onSubmit={ handleClick }> 
+                        <form > {/* onSubmit={ handleClick }> */}
                             <input type="text"
-                                    name="search"
+                                    name="title"
                                     placeholder="title"
-                                    onChange={ ( e ) => {
+                                    //onChange={ ( e ) => {
+
+                                        //setTitle( e.target.value )
                                         
-                                        setTitle( e.target.value ) 
+                                        //setTitle( e.target.value ) 
                                         //z.datasets[0].label = e.target.value
-                                        userData.datasets[0].label = e.target.value
-                                        setUserData( {...userData} )}}
+                                        //userData.datasets[0].label = e.target.value
+                                        //setUserData( {...userData} )}}
                                         // console.log( "userData=",userData )
                                     //}}
                                     ></input>
@@ -121,9 +145,8 @@ const Create = (  ) => {
                         <input type="text"
                                     name="search"
                                     placeholder="x,y pair"
-                                     
-                                  
-                                         
+
+                                    // setCoors( e.target.value )
                                     ></input>
                             <button type='Submit'>add data</button>
                         </form>
@@ -132,7 +155,7 @@ const Create = (  ) => {
             <div className="plot">
                 <h3>plot...</h3>
                 <div>
-                    <Bar data={ chartData }/>
+                   <Bar data={ temp }/>
                 </div>
             </div>
             <div className='footer-links'> 
@@ -147,4 +170,3 @@ const Create = (  ) => {
 export default Create
 
 
- 
