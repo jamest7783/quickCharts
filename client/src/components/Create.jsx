@@ -5,7 +5,7 @@ import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS  } from 'chart.js/auto'
 //import UserData from './Data.js'
 
-const Create = (  ) => {
+const Create = ( ) => {
 
     /* connecting to user generated chart created in last page, 
        setting it to 'chart' variable */
@@ -17,15 +17,78 @@ const Create = (  ) => {
     useEffect( () => { 
         chartConnect( ) 
     },[ ])
-    console.log( "data", chart )
-
-    let temp = { labels: chart.labels, datasets: chart.datasets } 
-    console.log( 'temp = ', temp)
-
+    
+    /* create temporary data-set for chart display, 
+       will "onSave" .put -> user's chart in back-end */
     const [ title, setTitle ] = useState( 'title' )
-    const [ coors, setCoors ] = useState([ ['Jan',0],['Feb',1],['March',2] ])
+    const [ xVals, setXVals ] = useState( [] )
+    const [ yVals, setYVals ] = useState( [] )
+    let temp  = {
+    labels: xVals,  
+    datasets: [{
+        label: title,
+        data: yVals }]
+    }
+    
+    let emptyXVals = [...Array(xVals.length+1)]
+    let emptyYVals = [...Array(yVals.length+1)]
+
+    let onChange = ( e, index ) => {
+        let tempArr = [...xVals]
+        tempArr.splice( index, 1, e.target.value )
+        setXVals( tempArr )
+    }
+    let onChangeY = ( e, index ) => {
+        let tempArrY = [...yVals]
+        console.log( tempArrY )
+        tempArrY.splice( index, 1, e.target.value )
+        setYVals( tempArrY )
+    }
+        
+    return (
+        <div className='create'>
+            <div className="input-data"> 
+                { 
+                    emptyXVals.map((item,index)=>(
+                        <input type="text"
+                        placeholder="x value"
+                        onChange={(e)=>onChange(e,index)}></input>   
+                    ))    
+                }
+                {
+                    emptyYVals.map((item,index)=>(
+                        //console.log( index )
+                        <input type='text'
+                        placeholder='y value'
+                        onChange={(e)=>onChangeY(e,index)}></input>
+                    ))
+                }
 
 
+                {/* <input type="text"
+                    placeholder="y value"
+                    onChange={(e)=>{setYVals([e.target.value])}}></input> */}
+            </div>
+            <div className="plot">
+                <h3>plot...</h3>
+                <div>
+                    < Bar data={ temp }/>
+                </div>
+            </div>
+            <div className='footer-links'> 
+                <Link to='/view'>View Plot Full-Screen</Link>
+                <Link to='/'>back to Home</Link>
+            </div>
+        </div>
+    )
+
+}
+
+export default Create
+
+
+
+    //const [ coors, setCoors ] = useState([ ['Jan',0],['Feb',1],['March',2] ])
     // const [ temp, setTemp ] = useState({})
     // const [ data, setData ] = useState({
     //     labels: [],
@@ -80,17 +143,13 @@ const Create = (  ) => {
     //         data: []
     //     }]
     // })
-
    
     // const handleClick = ( e  ) => {
     //     e.preventDefault()
 
-        
-
     //     setData( { datasets.label : title } )
     //     setCount(count+1)
     // }
-
 
     // function handleChange( e )  {
     //     setTitle({
@@ -98,9 +157,6 @@ const Create = (  ) => {
     //         [e.target.name]: e.target.value
     //         });
     //     }
-
-
-
 
     // useEffect( () => {
     //     console.log("Effective useEffect",  count)
@@ -116,57 +172,3 @@ const Create = (  ) => {
     // const updateChart = () => {
     //     setChart(chartdata )
     //  }
-
-    
-
-
-    return (
-        <div className='create'>
-            <div className="form">
-                    <div className="input-data"> 
-                        <form > {/* onSubmit={ handleClick }> */}
-                            <input type="text"
-                                    name="title"
-                                    placeholder="title"
-                                    //onChange={ ( e ) => {
-
-                                        //setTitle( e.target.value )
-                                        
-                                        //setTitle( e.target.value ) 
-                                        //z.datasets[0].label = e.target.value
-                                        //userData.datasets[0].label = e.target.value
-                                        //setUserData( {...userData} )}}
-                                        // console.log( "userData=",userData )
-                                    //}}
-                                    ></input>
-                            <button type='submit'>change title</button>
-                        </form> 
-                        <form> 
-                        <input type="text"
-                                    name="search"
-                                    placeholder="x,y pair"
-
-                                    // setCoors( e.target.value )
-                                    ></input>
-                            <button type='Submit'>add data</button>
-                        </form>
-                    </div>
-            </div>
-            <div className="plot">
-                <h3>plot...</h3>
-                <div>
-                   <Bar data={ temp }/>
-                </div>
-            </div>
-            <div className='footer-links'> 
-                <Link to='/view'>View Plot Full-Screen</Link>
-                <Link to='/'>back to Home</Link>
-            </div>
-        </div>
-    )
-
-}
-
-export default Create
-
-
