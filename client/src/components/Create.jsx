@@ -16,7 +16,7 @@ const Create = ( ) => {
     useEffect( () => { 
         chartConnect( ) 
     },[ ])
-    
+
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
     const [ title, setTitle ] = useState( 'title' )
@@ -40,14 +40,16 @@ const Create = ( ) => {
         tempArrY.splice( index, 1, e.target.value )
         setYVals( tempArrY )
     }
-
     async function saveChart ( ) {
         let tempChart = {...chart}
         tempChart.labels = temp.labels
         tempChart.datasets = temp.datasets
         const res = await axios.put(`http://localhost:3001/update-chart/${tempChart._id}`,tempChart)
     }
-        
+    let z = {
+        this: 'that'
+    }
+    
     return (
         <div className='create'>
             <div className="input-data"> 
@@ -69,94 +71,7 @@ const Create = ( ) => {
             </div>
         </div>
     )
-
 }
 
 export default Create
 
-
-
-    //const [ coors, setCoors ] = useState([ ['Jan',0],['Feb',1],['March',2] ])
-    // const [ temp, setTemp ] = useState({})
-    // const [ data, setData ] = useState({
-    //     labels: [],
-    //     datasets: [{
-    //         label: '',
-    //         data: []
-    //     }]
-    // })
-    // const [count, setCount] = useState(0);
-    // const [count2, setCount2] = useState(0);
-    // const [title, setTitle] = useState('');
-    // const UserData = [
-    //     {
-    //         id: 1,
-    //         year: 2016,
-    //         userGain: 80000,
-    //         userLost: 823
-    //     },
-    //     {
-    //         id: 2,
-    //         year: 2017,
-    //         userGain: 60000,
-    //         userLost: 523
-    //     },
-    //     {
-    //         id: 3,
-    //         year: 2018,
-    //         userGain: 50000,
-    //         userLost: 323
-    //     },
-    //     {
-    //         id: 4,
-    //         year: 2019,
-    //         userGain: 110000,
-    //         userLost: 123
-    //     }
-    // ]
-
-
-    // const [ userData, setUserData ] = useState({
-    //     labels: UserData.map((data) => data.year),
-    //     datasets: [{
-    //         label: "this is the title",
-    //        data: UserData.map((data) => data.userGain)
-    //     }]
-    // })
-
-    // const [ chartData, setChartData ] = useState({
-    //     labels: [],
-    //     datasets: [{
-    //         label: 'title',
-    //         data: []
-    //     }]
-    // })
-   
-    // const handleClick = ( e  ) => {
-    //     e.preventDefault()
-
-    //     setData( { datasets.label : title } )
-    //     setCount(count+1)
-    // }
-
-    // function handleChange( e )  {
-    //     setTitle({
-    //         ...data,
-    //         [e.target.name]: e.target.value
-    //         });
-    //     }
-
-    // useEffect( () => {
-    //     console.log("Effective useEffect",  count)
-    //     setChartData( {
-    //         labels: [ jan, feb, marhc],
-    //         datasets: [{
-    //             label: 'title',
-    //             data: [50, 60, 40]
-    //         }]
-    //     })
-    // },[  count, count2 ])
-
-    // const updateChart = () => {
-    //     setChart(chartdata )
-    //  }

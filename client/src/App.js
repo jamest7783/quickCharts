@@ -13,7 +13,6 @@ import axios from 'axios'
 function App() {
 
   const [ charts, setCharts ] = useState([])
-  //const [ xVals, setXVals ] = useState( [] )
     
   useEffect( ( ) => {
       const getCharts = async () => {
