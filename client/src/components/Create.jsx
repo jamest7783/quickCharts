@@ -45,11 +45,7 @@ const Create = ( ) => {
         let tempChart = {...chart}
         tempChart.labels = temp.labels
         tempChart.datasets = temp.datasets
-        setChart( tempChart )
-        //console.log(tempChart)
-        console.log( tempChart)
         const res = await axios.put(`http://localhost:3001/update-chart/${tempChart._id}`,tempChart)
-        console.log( res )
     }
         
     return (

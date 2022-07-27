@@ -46,7 +46,7 @@ const deleteChart = async ( req, res ) => {
 const updateChart = async ( req, res ) => {
     try {
         const { id } = req.params
-        const chart = await Chart.findByIdAndUpdate( id, 
+        const chart = await BarChart.findByIdAndUpdate( id, 
                                                      req.body, 
                                                      { new: true })
         res.status( 200 ).json({ chart })
