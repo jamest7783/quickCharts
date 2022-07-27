@@ -19,9 +19,9 @@ const Create = ( { chart, setChart } ) => {
 
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
-    const [ title, setTitle ] = useState( 'title' )
-    const [ xVals, setXVals ] = useState( [] )
-    const [ yVals, setYVals ] = useState( [] )
+    const [ title, setTitle ] = useState( chart.datasets[0].label )
+    const [ xVals, setXVals ] = useState( chart.labels )
+    const [ yVals, setYVals ] = useState( chart.datasets[0].data )
     let temp = {
         labels: xVals,  
         datasets: [{
@@ -45,6 +45,7 @@ const Create = ( { chart, setChart } ) => {
         tempChart.labels = temp.labels
         tempChart.datasets = temp.datasets
         const res = await axios.put(`http://localhost:3001/update-chart/${tempChart._id}`,tempChart)
+        setChart( temp )
     }
 
     return (
