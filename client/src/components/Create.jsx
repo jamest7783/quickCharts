@@ -4,11 +4,11 @@ import axios from 'axios'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS  } from 'chart.js/auto'
 
-const Create = ( ) => {
+const Create = ( { chart, setChart } ) => {
 
     /* connecting to user generated chart created in last page, 
        setting it to 'chart' variable */
-    const [ chart, setChart ] = useState({})
+    //const [ chart, setChart ] = useState({})
     async function chartConnect( ) {
         const res = await axios.get('http://localhost:3001/charts') 
         setChart( res.data.barCharts[0] )
@@ -46,10 +46,7 @@ const Create = ( ) => {
         tempChart.datasets = temp.datasets
         const res = await axios.put(`http://localhost:3001/update-chart/${tempChart._id}`,tempChart)
     }
-    let z = {
-        this: 'that'
-    }
-    
+
     return (
         <div className='create'>
             <div className="input-data"> 
@@ -66,7 +63,7 @@ const Create = ( ) => {
                 </div>
             </div>
             <div className='footer-links'> 
-                <Link to='/view'>View Plot Full-Screen</Link>
+                <Link to="/view">View Plot Full-Screen</Link>
                 <Link to='/'>back to Home</Link>
             </div>
         </div>

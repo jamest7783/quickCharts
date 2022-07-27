@@ -13,6 +13,7 @@ import axios from 'axios'
 function App() {
 
   const [ charts, setCharts ] = useState([])
+  const [ chart, setChart ] = useState({})
     
   useEffect( ( ) => {
       const getCharts = async () => {
@@ -32,9 +33,9 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home charts={ charts }/> } />
           <Route path='/library' element={ <Library charts={ charts }/> } /> 
-          <Route path="/create" element={ <Create /> } />
+          <Route path="/create" element={ <Create chart={chart} setChart={setChart}/> } />
           <Route path="/about" element={ <About /> } />
-          <Route path="/view" element={ <View /> } />
+          <Route path="/view" element={ <View chart={chart} setChart={setChart}/> } />
         </Routes>
       </main>
     </div>
