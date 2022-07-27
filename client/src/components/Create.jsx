@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS  } from 'chart.js/auto'
-//import UserData from './Data.js'
 
 const Create = ( ) => {
 
@@ -23,16 +22,14 @@ const Create = ( ) => {
     const [ title, setTitle ] = useState( 'title' )
     const [ xVals, setXVals ] = useState( [] )
     const [ yVals, setYVals ] = useState( [] )
-    let temp  = {
-    labels: xVals,  
-    datasets: [{
-        label: title,
-        data: yVals }]
+    let temp = {
+        labels: xVals,  
+        datasets: [{
+            label: title,
+            data: yVals }]
     }
-    
     let emptyXVals = [...Array(xVals.length+1)]
     let emptyYVals = [...Array(yVals.length+1)]
-
     let onChange = ( e, index ) => {
         let tempArr = [...xVals]
         tempArr.splice( index, 1, e.target.value )
@@ -40,7 +37,6 @@ const Create = ( ) => {
     }
     let onChangeY = ( e, index ) => {
         let tempArrY = [...yVals]
-        console.log( tempArrY )
         tempArrY.splice( index, 1, e.target.value )
         setYVals( tempArrY )
     }
@@ -48,31 +44,12 @@ const Create = ( ) => {
     return (
         <div className='create'>
             <div className="input-data"> 
-                { 
-                    emptyXVals.map((item,index)=>(
-                        <input type="text"
-                        placeholder="x value"
-                        onChange={(e)=>onChange(e,index)}></input>   
-                    ))    
-                }
-                {
-                    emptyYVals.map((item,index)=>(
-                        //console.log( index )
-                        <input type='text'
-                        placeholder='y value'
-                        onChange={(e)=>onChangeY(e,index)}></input>
-                    ))
-                }
-
-
-                {/* <input type="text"
-                    placeholder="y value"
-                    onChange={(e)=>{setYVals([e.target.value])}}></input> */}
+                {emptyXVals.map((item,index)=>(<input type="text"placeholder="x value"onChange={(e)=>onChange(e,index)}></input>   ))}
+                {emptyYVals.map((item,index)=>(<input type='text'placeholder='y value'onChange={(e)=>onChangeY(e,index)}></input>))}
             </div>
             <div className="plot">
-                <h3>plot...</h3>
                 <div>
-                    < Bar data={ temp }/>
+                    <Bar data={ temp }/>
                 </div>
             </div>
             <div className='footer-links'> 
