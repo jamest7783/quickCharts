@@ -8,7 +8,38 @@ const main = async (  ) => {
     const charts = [
         {
             title: 'newTitle',
-            data: [ ['x','y'], [ 'x','y'] ],
+            data:[
+                    {
+                        id: 1,
+                        year: 2016,
+                        userGain: 80000,
+                        userLost: 823
+                    },
+                    {
+                        id: 1,
+                        year: 2016,
+                        userGain: 80000,
+                        userLost: 823
+                    },
+                    {
+                        id: 1,
+                        year: 2016,
+                        userGain: 80000,
+                        userLost: 823
+                    },
+                    {
+                        id: 1,
+                        year: 2016,
+                        userGain: 80000,
+                        userLost: 823
+                    },
+                    {
+                        id: 1,
+                        year: 2016,
+                        userGain: 80000,
+                        userLost: 823
+                    }
+                ],
             axis: {
                 xLabel: 'xLabel_Name',
                 yLabel: 'yLabel_Name'

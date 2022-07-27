@@ -1,9 +1,10 @@
 const Chart = require( '../models/chart' )
+const BarChart = require( '../models/barChart' )
 
 const getCharts = async ( req, res ) => {
     try {
-        const charts = await Chart.find()
-        return res.status( 200 ).json({ charts })
+        const barCharts = await BarChart.find()
+        return res.status( 200 ).json({ barCharts })
     } catch ( error ) {
         return res.status( 500 ).json( error.messege )
     }
