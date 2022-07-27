@@ -6,7 +6,7 @@ const Plot = ({ chartData }) => {
     return (
 
         <div className="plot">
-            <h1>plot for building chart</h1>
+            <h3>plot...</h3>
             <div>
                 <Bar data={ chartData }/>
             </div>

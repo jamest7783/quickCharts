@@ -1,4 +1,4 @@
-export const UserData = [
+const UserData = [
     {
         id: 1,
         year: 2016,
@@ -24,3 +24,5 @@ export const UserData = [
         userLost: 123
     }
 ]
+
+export default UserData
