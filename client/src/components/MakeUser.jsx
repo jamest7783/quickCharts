@@ -22,8 +22,8 @@ const MakeUser = ( { user, setUser, name, setName, setCharts, charts, setChart }
     return (
         <div>
             <h1>profile</h1>
-            <form className='create-user'>
-                <input type='text' placeholder='_________________________' style={{ border:'none'}}
+            <form className='create-user' onSubmit={(e) => navigate('/create')}>
+                <input type='text' placeholder='username' style={{ border:'none'}}
                 onChange={(e)=> {setName(e.target.value)}}></input>
             </form>
             <button onClick={(e) => navigate('/create') }>continue as anonymous</button>
