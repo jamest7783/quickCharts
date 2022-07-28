@@ -6,20 +6,33 @@ import { Chart as ChartJS  } from 'chart.js/auto'
 
 const Create = ( { chart, setChart, name } ) => {
 
+    async function newChart ( ) {
+        let res = await axios.post('http://localhost:3001/create-chart')
+        res.data.chart.datasets = [{
+            label: 'bar chart',
+            data: [0, 1 , 2]
+        }]
+        let labels = res.data.chart.labels
+        let datasets = res.data.chart.datasets
+    }
+    useEffect( () => { 
+        newChart( ) 
+    },[ ])
+
     /* connecting to user generated chart created in last page, 
        setting it to 'chart' variable */
     //const [ chart, setChart ] = useState({})
-    let index = 0
-    async function chartConnect( ) {
-        const res = await axios.get('http://localhost:3001/charts') 
-        const index = res.data.barCharts.length
-        setChart( res.data.barCharts[0] )
-        console.log( "NEW=", res.data.barCharts[index-1] )
-        return index
-    }
-    useEffect( () => { 
-        chartConnect( ) 
-    },[ ])
+    // let index = 0
+    // async function chartConnect( ) {
+    //     const res = await axios.get('http://localhost:3001/charts') 
+    //     const index = res.data.barCharts.length
+    //     setChart( res.data.barCharts[0] )
+    //     console.log( "NEW=", res.data.barCharts[index-1] )
+    //     return index
+    // }
+    // useEffect( () => { 
+    //     chartConnect( ) 
+    // },[ ])
 
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
