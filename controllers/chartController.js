@@ -22,7 +22,7 @@ const viewChart = async ( req, res ) => {
 
 const createChart = async ( req, res ) => {
     try {
-        const chart = await new Chart( req.body )  
+        const chart = await new BarChart( req.body )  
         await chart.save( )
         return res.status( 201 ).json({ chart })
     } catch ( error ) {

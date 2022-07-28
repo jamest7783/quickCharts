@@ -1,14 +1,19 @@
 import Nav from './Nav'
 import Search from './Search'
+import { useNavigate } from 'react-router-dom'
 
-const Home = ( props ) => {
+const Home = ( { search, setSearch} ) => {
 
-    console.log( "In HOME=",props.charts )
-
+    const navigate = useNavigate()
+    const routeChange = (  ) => {
+        let path = '/library'
+        navigate( path )
+    }
     return (
         <div>
             <h2>quickChart</h2>
-            <Search/>
+            <button onClick={ routeChange }>O</button>
+            <Search search={ search } setSearch={ setSearch } />
             <Nav />
         </div>
     )

@@ -28,3 +28,14 @@
 .footer-links {
   grid-area: 2/2/2/2;
 }
+
+.create-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chartWrapper {
+  width: 5000px;
+  height: 40px;
+}

@@ -1,19 +1,12 @@
-import { useNavigate } from 'react-router-dom'
 
-const Search = (  ) => {
 
-    const navigate = useNavigate()
-    const routeChange = (  ) => {
-        let path = '/library'
-        navigate( path )
-        //will have to bring input with route change
-    }
+const Search = ( { search, setSearch }  ) => {
 
     return (
         <div>
             <form>
-                <button onClick={ routeChange }>onSubmit link to Library with search input</button>
-                <input placeholder='search by data or axis'>
+                <input placeholder='search by data, axis or profile'
+                onChange={(e)=>setSearch( e.target.value )}>
                 
                 </input>
             </form>

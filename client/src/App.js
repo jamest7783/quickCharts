@@ -1,17 +1,23 @@
 import react from 'react'
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import './App.css'
 import Home from './components/Home'
 import Create from './components/Create';
 import About from './components/About';
 import View from './components/View';
 import Library from './components/Library';
-import { useEffect } from 'react'
 import axios from 'axios'
+import MakeUser from './components/MakeUser'
 
 function App() {
 
+  const [ search, setSearch ] = useState('') 
+  const [ user, setUser ] = useState({
+    name: '',
+    icon: 'icon url will be here'
+  })
+  const [ name, setName ] = useState(user.name)
   const [ charts, setCharts ] = useState([])
   const [ chart, setChart ] = useState({
       labels: [],  
@@ -36,11 +42,12 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={ <Home charts={ charts }/> } />
-          <Route path='/library' element={ <Library charts={ charts }/> } /> 
-          <Route path="/create" element={ <Create chart={chart} setChart={setChart}/> } />
+          <Route path="/" element={ <Home charts={ charts } search={search} setSearch={setSearch}/> } />
+          <Route path='/library' element={ <Library charts={ charts } search={search} setSearch={setSearch}/> } /> 
+          <Route path="/create" element={ <Create chart={chart} setChart={setChart} name={name}/> } />
+          <Route path="/profile" element={ <MakeUser setChart={ setChart }charts={charts}setCharts={setCharts} user={user} setUser={setUser} name={name} setName={setName}  /> } />
           <Route path="/about" element={ <About /> } />
-          <Route path="/view" element={ <View chart={chart} /> } />
+          <Route path="/view" element={ <View chart={chart} name={ name } /> } />
         </Routes>
       </main>
     </div>

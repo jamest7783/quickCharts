@@ -4,16 +4,7 @@ const Projects = (  ) => {
 
     return (
         <div>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
+ 
         </div>
     )
 }

@@ -1,12 +1,20 @@
 import { Link } from 'react-router-dom'
+import { Bar } from 'react-chartjs-2'
+import { Chart as ChartJS  } from 'chart.js/auto'
 
-const Post = (  ) => {
+const Post = ( chart={ chart }  ) => {
+
+    const { datasets, labels } = chart.chart 
+    console.log( datasets, labels )
+    let data = { datasets: datasets,
+                 labels: labels }
+    
 
 
     return (
         <div>
-            <Link to='/view'>x</Link>
-            single post w/ like, comment
+            <Link to='/view'>view chart</Link>
+            <Bar data={data}/>
         </div>
     )
 }
