@@ -47,7 +47,7 @@ const Create = ( { chart, setChart, user } ) => {
 
     return (
         <div className='create-page'>
-            <div className="input-data"> 
+            <div className="input"> 
                 <input type='text' placeholder='title' onChange={(e)=>setTitle(e.target.value)}></input>
                 {emptyXVals.map((item,index)=>(<input type="text"placeholder={`${xVals[index]}`} onChange={(e)=>onChange(e,index)}></input>))}
                 {emptyYVals.map((item,index)=>(<input type='text'placeholder={`${yVals[index]}`} onChange={(e)=>onChangeY(e,index)}></input>))}
