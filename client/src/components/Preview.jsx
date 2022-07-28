@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useResolvedPath } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS  } from 'chart.js/auto'
  
-const Preview = ({ chart, name }) => {
+const Preview = ({ chart, user }) => {
 
     const { datasets, labels } = chart 
     const data = {
@@ -16,7 +16,7 @@ const Preview = ({ chart, name }) => {
                 <Bar data={ data }/> 
             </div>
             <div>
-                { name }
+                { user.name }
             </div>
             <Link to='/create'>back to Create </Link>
             <Link to='/'>back to Home</Link>

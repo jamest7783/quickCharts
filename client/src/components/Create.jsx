@@ -42,7 +42,6 @@ const Create = ( { chart, setChart, user } ) => {
         tempChart.labels = temp.labels
         tempChart.datasets = temp.datasets
         const updateChartInBackend = await axios.put(`http://localhost:3001/update-chart/${user.charts[0]}`,tempChart)
-        
         setChart( temp )
     }
 

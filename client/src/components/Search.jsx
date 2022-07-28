@@ -1,4 +1,4 @@
-
+import { useNavigate } from 'react-router-dom'
 
 const Search = ({search,setSearch,shelf,setFound})=>{
 
@@ -22,10 +22,15 @@ const Search = ({search,setSearch,shelf,setFound})=>{
         }
     }
 
+    const navigate = useNavigate()
+    let toLibrary=()=>{
+        navigate('/library')
+    }
+
     return (
         <div>
-            <form>
-                <input placeholder='search by data, axis or profile' onChange={(e)=>find(e)}></input>
+            <form onSubmit={(e)=>toLibrary()}>
+                <input className='search-bar' placeholder='search by data, axis or profile' onChange={(e)=>find(e)}></input>
             </form>
 
         </div>

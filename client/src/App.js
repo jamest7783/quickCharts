@@ -54,7 +54,7 @@ function App() {
           <Route path="/create" element={ <Create chart={chart} setChart={setChart}  user={user}/> } />
           <Route path="/profile" element={ <MakeUser setChart={ setChart }charts={charts}setCharts={setCharts} user={user} setUser={setUser} name={name} setName={setName} chart={chart}  /> } />
           <Route path="/about" element={ <About /> } />
-          <Route path="/preview" element={ <Preview chart={chart} name={ name } /> } />
+          <Route path="/preview" element={ <Preview chart={chart} user={ user } /> } />
           <Route path="/viewpost" element={ <ViewPost post={post}/> } />
         </Routes>
       </main>
