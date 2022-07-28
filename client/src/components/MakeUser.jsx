@@ -8,14 +8,18 @@ const MakeUser = ( { user, setUser, name, setName, setChart, chart } ) => {
 
     let navigate = useNavigate()
 
+    let goCreate = () => {
+        navigate('/create')
+    }
     async function newChart ( ) {
         let res=await axios.post('http://localhost:3001/create-chart')
         let blankChart=res.data.chart
         let tempUser={...user}
         tempUser.charts=[blankChart._id]
         setUser(tempUser)
-        navigate('/create')
+        goCreate()
     }  
+
     const continueAsAnonymous=()=>{
         setUser({name:'anonymous',icon:''})
     }

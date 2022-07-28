@@ -5,7 +5,7 @@ import { Chart as ChartJS  } from 'chart.js/auto'
 const Post = ( chart={ chart }  ) => {
 
     const { datasets, labels } = chart.chart 
-    console.log( datasets, labels )
+    //console.log( datasets, labels )
     let data = { datasets: datasets,
                  labels: labels }
     
