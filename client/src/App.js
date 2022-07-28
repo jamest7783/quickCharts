@@ -13,7 +13,7 @@ import MakeUser from './components/MakeUser'
 function App() {
 
   const [ search, setSearch ] = useState('') 
-  const [ found, setFound ] = useState({})
+  const [ found, setFound ] = useState([])
   const [ user, setUser ] = useState({
     name: 'username',
     icon: 'icon url will be here'
@@ -31,6 +31,7 @@ function App() {
   useEffect( ( ) => {
       const getCharts = async () => {
           const res = await axios.get('http://localhost:3001/charts')
+          console.log(res)
           setCharts( res.data )
           console.log(res.data)
       } 

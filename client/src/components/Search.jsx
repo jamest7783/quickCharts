@@ -1,39 +1,33 @@
 
 
-const Search = ( { search, setSearch, charts }  ) => {
+const Search = ({search,setSearch,shelf,setFound})=>{
 
-    let find = () => {
-        //console.log('in search')
-        let stack = charts.barCharts
-        let found = []
-        //console.log("---> ", stack)
-        stack.map((post)=>{
-            //console.log("title->",post.datasets[0].label)
-            //console.log("x-values->",post.labels)
-            let attributes = [...post.labels,post.datasets[0].label]
-            for (let i=0;i<attributes.length;i++) {
-                if (attributes[i]===search) {
-                    console.log('found a match')
+    let find=(e)=>{
+        if (!e.target.value){
+            setFound(shelf)
+        } else {
+            setSearch(e.target.value)
+            let found=[]
+            let stack=shelf
+            stack.map((post)=>{
+                let attr=[...post.labels,post.datasets[0].label]
+                for (let i=0;i<attr.length;i++){
+                    if (search===attr[i].substr(0,search.length)&&!found.includes(post._id)){
+                        found.push(post)
+                    }
+                    if (attr[i]===search&&!found.includes(post._id)){
+                        found.push(post)
+                    }
                 }
-            }
-            //console.log('att',attributes)
-        })
-  
+            })
+            setFound(found)
+        }
     }
-    find() 
-
-
-
-
-
 
     return (
         <div>
             <form>
-                <input placeholder='search by data, axis or profile'
-                onChange={(e)=>setSearch( e.target.value )}>
-                
-                </input>
+                <input placeholder='search by data, axis or profile' onChange={(e)=>find(e)}></input>
             </form>
 
         </div>

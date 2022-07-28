@@ -7,27 +7,25 @@ import { useEffect, useState } from 'react'
 
 const Library = ({ search, setSearch, charts, found, setFound }) => {
 
-    let [ library, setLibrary ] = useState([])
-    console.log( search )
-     
-
+    let [ shelf, setShelf ] = useState([])
+ 
+    console.log("search-->",search)
     async function retrieveCharts() { 
         const res = await axios.get('http://localhost:3001/charts')
-        setLibrary( res.data.barCharts )
-        //console.log( "library = ",library )
+        setShelf( res.data.barCharts )
+        setFound(res.data.barCharts ) 
     }
-
     useEffect(()=> {
         retrieveCharts()
     },[])
+   
 
     return (
         <div>
             <Link to='/'>back to Home</Link>
-            <Search search={search}setSearch={setSearch}charts={charts}found={found}setFound={setFound}library={library}/>
+            <Search search={search}setSearch={setSearch}charts={charts}shelf={shelf}setFound={setFound}/>
             <h3>{search}</h3>
-            <Projects/>
-            { library.map((chart)=> (
+            {found.map((chart)=> (
                 <Post chart={chart} />
             ))}
         </div>
