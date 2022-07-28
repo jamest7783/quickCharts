@@ -30,7 +30,7 @@ const Search = ({search,setSearch,shelf,setFound})=>{
     return (
         <div>
             <form onSubmit={(e)=>toLibrary()}>
-                <input className='search-bar' placeholder='search by data, axis or profile' onChange={(e)=>find(e)}></input>
+                <input className='search-bar' placeholder='search projects by data or axis' onChange={(e)=>find(e)}></input>
             </form>
 
         </div>

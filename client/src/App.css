@@ -47,21 +47,78 @@
 }
 .start {
   grid-area: 2/2/2/2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-bar{
   border-radius: 10px;
-  width: 400px;
+  width: 550px;
   height:22px;
 }
 #quickChart {
-  margin: 0px;
+  margin: 30px;
   font-size: 75px;
 }
 .home-link {
+  width: 125px;
+  height:30px;
   background-color: transparent;
-  border: none
+  border: none;
+  border-radius: 10px;
+
 }
 .home-link:hover {
   background-color: grey;
 }
+nav {
+  margin-top: 20px;
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+}
+.profile {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template: 1fr 400px 1fr / 1fr 400px 1fr;
+}
+.make-profile {
+  grid-area: 2/2/2/2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: ce;
+}
+.profile-link {
+  width: 200px;
+  height:25px;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+}
+.profile-link:hover {
+  background-color: grey;
+}
+.user-field {
+  border-radius: 10px;
+  width: 400px;
+  height:22px;
+}
+.create-page {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template: 1f 1fr 1fr 1fr/ 200px 1fr 1fr 200px ;
+}
+.input-data {
+  grid-area: 2/2/2/2;
+}
+.note-pad {
+  grid-area: 2/3/2/3;
+}
+.footer-links {
+  grid-area: 3/2/3/2 ;
+}
+ 

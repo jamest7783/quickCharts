@@ -4,7 +4,7 @@ import axios from 'axios'
 import { set } from 'mongoose'
 
   
-const MakeUser = ( { user, setUser, name, setName, setChart, chart } ) => {
+const MakeUser = ( { user, setUser } ) => {
 
     let navigate = useNavigate()
 
@@ -22,23 +22,23 @@ const MakeUser = ( { user, setUser, name, setName, setChart, chart } ) => {
 
     const continueAsAnonymous=()=>{
         setUser({name:'anonymous',icon:''})
+        navigate('/create')
     }
     const makeProfile=(e)=>{
         setUser({name:e.target.value,icon:''})
     }
 
     return (
-        <div>
-            <h1>profile</h1>
-            <form className='create-user' onSubmit={(e) => navigate('/create')}>
-                <input type='text' placeholder={user.name} style={{ border:'none'}}
-                onChange={(e)=> makeProfile(e)}></input>
-            </form>
-            <button onClick={(e) => continueAsAnonymous() }>continue as anonymous</button>
-            <p>{ user.name }</p>
-            <button onClick={(e)=>{newChart()}}>create new chart</button>
-            <Link to='/'>~HOME~</Link>
-
+        <div className='profile'>
+            <div className='make-profile'>
+                <form className='create-user' onSubmit={(e) => navigate('/create')}>
+                    <input className='user-field'type='text' placeholder='  enter user name' 
+                    onChange={(e)=> makeProfile(e)}></input>
+                </form>
+                <button className='profile-link'onClick={(e) => continueAsAnonymous() }>continue as anonymous</button>
+                <button onClick={(e)=>{newChart()}}>create new chart</button>
+                <Link to='/'>~HOME~</Link>
+            </div>
         </div>
     )
 }
