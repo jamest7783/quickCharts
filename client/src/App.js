@@ -13,6 +13,7 @@ import MakeUser from './components/MakeUser'
 function App() {
 
   const [ search, setSearch ] = useState('') 
+  const [ found, setFound ] = useState({})
   const [ user, setUser ] = useState({
     name: 'username',
     icon: 'icon url will be here'
@@ -46,7 +47,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={ <Home charts={ charts } search={search} setSearch={setSearch}/> } />
-          <Route path='/library' element={ <Library charts={ charts } search={search} setSearch={setSearch}/> } /> 
+          <Route path='/library' element={ <Library charts={ charts } search={search} setSearch={setSearch} found={found} setFound={setFound}/> } /> 
           <Route path="/create" element={ <Create chart={chart} setChart={setChart}  user={user}/> } />
           <Route path="/profile" element={ <MakeUser setChart={ setChart }charts={charts}setCharts={setCharts} user={user} setUser={setUser} name={name} setName={setName} chart={chart}  /> } />
           <Route path="/about" element={ <About /> } />

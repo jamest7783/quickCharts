@@ -5,7 +5,7 @@ import Post from './Post'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const Library = ({ search, setSearch, charts }) => {
+const Library = ({ search, setSearch, charts, found, setFound }) => {
 
     let [ library, setLibrary ] = useState([])
     console.log( search )
@@ -24,7 +24,7 @@ const Library = ({ search, setSearch, charts }) => {
     return (
         <div>
             <Link to='/'>back to Home</Link>
-            <Search search={search} setSearch={setSearch}/>
+            <Search search={search}setSearch={setSearch}charts={charts}found={found}setFound={setFound}library={library}/>
             <h3>{search}</h3>
             <Projects/>
             { library.map((chart)=> (
