@@ -1,22 +1,26 @@
 import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS  } from 'chart.js/auto'
+import { useNavigate } from 'react-router-dom'
 
-const Post = ( { chart }  ) => {
 
-    
+const Post = ( { chart, setPost }  ) => {
 
     const { datasets, labels } = chart
-    //console.log( datasets, labels )
     let data = { datasets: datasets,
                  labels: labels }
-    
-
+    const navigate = useNavigate()
+    let viewPost=()=>{
+        setPost( data )
+        navigate('/viewpost')
+    }
 
     return (
         <div>
-            <Link to='/view'>view chart</Link>
-            <Bar data={data}/>
+            <button onClick={(e)=>{viewPost()}}>~VIEW-POST~</button>
+            <div>
+                <Bar data={data}/>
+            </div>
         </div>
     )
 }

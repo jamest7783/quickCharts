@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS  } from 'chart.js/auto'
  
-const View = ({ chart, name }) => {
+const Preview = ({ chart, name }) => {
 
     const { datasets, labels } = chart 
     const data = {
@@ -24,4 +24,4 @@ const View = ({ chart, name }) => {
     )
 }
 
-export default View
+export default Preview

@@ -5,7 +5,7 @@ import Post from './Post'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const Library = ({ search, setSearch, charts, found, setFound }) => {
+const Library = ({ search, setSearch, charts, found, setFound, setChart, post, setPost }) => {
 
     let [ shelf, setShelf ] = useState([])
  
@@ -26,7 +26,7 @@ const Library = ({ search, setSearch, charts, found, setFound }) => {
             <Search search={search}setSearch={setSearch}charts={charts}shelf={shelf}setFound={setFound}/>
             <h3>{search}</h3>
             {found.map((chart)=> (
-                <Post chart={chart} />
+                <Post chart={chart} setChart={setChart} post={post} setPost={setPost} />
             ))}
         </div>
     )

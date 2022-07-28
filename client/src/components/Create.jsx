@@ -65,9 +65,9 @@ const Create = ( { chart, setChart, user } ) => {
                 </div>
             </div>
             <div className='footer-links'> 
-                <Link to="/view">View Plot Full-Screen</Link>
-                <Link to='/'>back to Home</Link>
-                <Link to='/profile'>   Back to Profile</Link> 
+                <Link to="/preview">~PREVIEW~</Link>
+                <Link to='/'>~HOME~</Link>
+                <Link to='/profile'>~PROFILE~</Link> 
             </div>
         </div>
     )
