@@ -5,7 +5,7 @@ import Post from './Post'
 
 const Library = ({ search, setSearch, charts }) => {
 
-    console.log( charts.barCharts )
+    
 
 
 

@@ -9,8 +9,8 @@ const main = async (  ) => {
         [{
             labels: [ 'Jan','Feb','March','April' ],
             datasets: [{
-                label: 'title' ,
-                data: [ 0,1,2,3 ] 
+                label: 'Title' ,
+                data: [ 0,1,3,2 ] 
             }]
         }]
     await BarChart.insertMany( barChart ) 

@@ -5,7 +5,7 @@ const Chart = require( '../models/chart.js' )
 
 
 router.get(    '/charts',           chartController.getCharts   )
-router.get(    '/charts/:id',       chartController.viewChart   )
+router.get(    '/charts/:id',       chartController.getNewChart   )
 router.post(   '/create-chart',     chartController.createChart )
 router.put(    '/update-chart/:id', chartController.updateChart )
 router.delete( '/delete-chart/:id', chartController.deleteChart )

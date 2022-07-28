@@ -4,18 +4,15 @@ import axios from 'axios'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS  } from 'chart.js/auto'
 
-const Create = ( { chart, setChart, name } ) => {
+const Create = ( { chart, setChart, user } ) => {
 
-    async function chartConnect( ) {
-        const res = await axios.get('http://localhost:3001/charts') 
-        const index = res.data.barCharts.length
-        setChart( res.data.barCharts[0] )
-        console.log( "NEW=", res.data.barCharts[index-1] )
-        return index
+    async function getUserChart() {
+        const res = await axios.get(`http://localhost:3001/charts/${user.charts[user.charts.length-1]}`)
+        let barChart = res.data.barChart 
+        console.log( 'BARCHART=',barChart ) 
+        setChart( barChart )
     }
-    useEffect( () => { 
-        chartConnect( ) 
-    },[ ])
+    useEffect(()=>{getUserChart()},[])
 
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
@@ -44,7 +41,8 @@ const Create = ( { chart, setChart, name } ) => {
         let tempChart = {...chart}
         tempChart.labels = temp.labels
         tempChart.datasets = temp.datasets
-        const res = await axios.put(`http://localhost:3001/update-chart/${tempChart._id}`,tempChart)
+        const updateChartInBackend = await axios.put(`http://localhost:3001/update-chart/${user.charts[0]}`,tempChart)
+        
         setChart( temp )
     }
 
@@ -63,7 +61,7 @@ const Create = ( { chart, setChart, name } ) => {
                     <button onClick={saveChart}>Save</button>
                 </div>
                 <div>
-                    { name }
+                    { user.name } 
                 </div>
             </div>
             <div className='footer-links'> 

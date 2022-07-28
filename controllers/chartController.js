@@ -10,11 +10,11 @@ const getCharts = async ( req, res ) => {
     }
 }
 
-const viewChart = async ( req, res ) => {
+const getNewChart = async ( req, res ) => {
     try {
         const { id } = req.params                
-        const chart = await Chart.findById( id )
-        return res.status( 200 ).json({ chart })
+        const barChart = await BarChart.findById( id )
+        return res.status( 200 ).json({ barChart })
     } catch ( error ) {
         return res.status( 500 ).json( error.messege )
     }
@@ -69,7 +69,7 @@ const findChart = async ( req, res ) => {
 
 module.exports = {
     getCharts,
-    viewChart,
+    getNewChart, 
     createChart,
     updateChart,
     deleteChart,

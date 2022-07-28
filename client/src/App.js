@@ -14,7 +14,7 @@ function App() {
 
   const [ search, setSearch ] = useState('') 
   const [ user, setUser ] = useState({
-    name: '',
+    name: 'username',
     icon: 'icon url will be here'
   })
   const [ name, setName ] = useState(user.name)
@@ -31,9 +31,12 @@ function App() {
       const getCharts = async () => {
           const res = await axios.get('http://localhost:3001/charts')
           setCharts( res.data )
+          console.log(res.data)
       } 
       getCharts()
   },[])
+
+ 
 
   return (
     <div className="App">
@@ -44,8 +47,8 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home charts={ charts } search={search} setSearch={setSearch}/> } />
           <Route path='/library' element={ <Library charts={ charts } search={search} setSearch={setSearch}/> } /> 
-          <Route path="/create" element={ <Create chart={chart} setChart={setChart} name={name}/> } />
-          <Route path="/profile" element={ <MakeUser setChart={ setChart }charts={charts}setCharts={setCharts} user={user} setUser={setUser} name={name} setName={setName}  /> } />
+          <Route path="/create" element={ <Create chart={chart} setChart={setChart}  user={user}/> } />
+          <Route path="/profile" element={ <MakeUser setChart={ setChart }charts={charts}setCharts={setCharts} user={user} setUser={setUser} name={name} setName={setName} chart={chart}  /> } />
           <Route path="/about" element={ <About /> } />
           <Route path="/view" element={ <View chart={chart} name={ name } /> } />
         </Routes>
