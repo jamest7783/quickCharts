@@ -12,10 +12,8 @@ const Search = ({search,setSearch,shelf,setFound})=>{
             stack.map((post)=>{
                 let attr=[...post.labels,post.datasets[0].label]
                 for (let i=0;i<attr.length;i++){
-                    if (search===attr[i].substr(0,search.length)&&!found.includes(post._id)){
-                        found.push(post)
-                    }
-                    if (attr[i]===search&&!found.includes(post._id)){
+                    if ((search===attr[i].substr(0,search.length)&&!found.includes(post._id))||
+                        (attr[i]===search&&!found.includes(post._id))){
                         found.push(post)
                     }
                 }

@@ -37,7 +37,6 @@ const MakeUser = ( { user, setUser, name, setName, setChart, chart } ) => {
             <button onClick={(e) => continueAsAnonymous() }>continue as anonymous</button>
             <p>{ user.name }</p>
             <button onClick={(e)=>{newChart()}}>create new chart</button>
-
             <Link to='/create' style={{ lineDecoration: 'none' }}>go</Link>
             <Link to='/'>HOME</Link>
 
