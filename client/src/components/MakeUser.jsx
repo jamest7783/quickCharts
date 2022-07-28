@@ -30,8 +30,6 @@ const MakeUser = ( { user, setUser, name, setName, setCharts, charts, setChart }
             <p>{ name }</p>
             <button onClick={(e)=>{newChart()}}>create new chart</button>
 
-
-
             <Link to='/create' style={{ lineDecoration: 'none' }}>go</Link>
             <Link to='/'>HOME</Link>
 
