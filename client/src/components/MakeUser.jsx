@@ -28,16 +28,24 @@ const MakeUser = ( { user, setUser } ) => {
         setUser({name:e.target.value,icon:''})
     }
 
+    const goHome=()=>{
+        navigate('/')
+    }
+
     return (
         <div className='profile'>
             <div className='make-profile'>
                 <form className='create-user' onSubmit={(e) => navigate('/create')}>
-                    <input className='user-field'type='text' placeholder='  enter user name' 
-                    onChange={(e)=> makeProfile(e)}></input>
+                    <div id='skip'>
+                        <button className='profile-link'onClick={(e) => continueAsAnonymous() }>skip</button>
+                    </div>
                 </form>
-                <button className='profile-link'onClick={(e) => continueAsAnonymous() }>continue as anonymous</button>
-                <button onClick={(e)=>{newChart()}}>create new chart</button>
-                <Link to='/'>~HOME~</Link>
+                <div> 
+                <input className='user-field'type='text' placeholder='  enter user name' 
+                    onChange={(e)=> makeProfile(e)}></input>
+                    <button className='username' onClick={(e)=>{newChart()}}>create new chart</button>
+                    <button className='go-home'onClick={(e)=>{goHome()}}>home</button>
+                </div>
             </div>
         </div>
     )
