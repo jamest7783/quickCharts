@@ -422,7 +422,6 @@ nav {
 }
 #about-sidebar {
   grid-area: 2/3/2/3;
-
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -431,17 +430,41 @@ nav {
 
 }
 #about-home {
+  background-image: url('Home.png');
   background-color: transparent;
-  color: black;
-  border-radius: 10px;
-  height: 60px;
-  width: 80px;
-  border: 1px solid black;
+  border: none;
+  background-size: contain ;
+  height: 40px;
+  width: 40px;
+}
+#about-linkedin {
+  background-image: url('linkedin.png');
+  background-color: transparent;
+  border: none;
+  background-size: contain ;
+  height: 40px;
+  width: 40px;
+}
+#about-github {
+  background-image: url('gitHub.png');
+  background-color: transparent;
+  border: none;
+  background-size: cover ;
+  height: 40px;
+  width: 40px;
 }
 #about-home:hover {
-  background-color: grey;
+  height: 60px;
+  width: 60px;
+}
+#about-linkedin:hover {
+  height: 60px;
+  width: 60px;
+}
+#about-github:hover {
+  height: 60px;
+  width: 60px;
   color: white;
-  border: 1px solid grey;
 }
 .about-text {
   margin: 25px;
@@ -453,10 +476,7 @@ nav {
   margin-top: 110px;
   font-size: 75px;
 }
-#home-icon {
-  height: 30px;
-  width: 30px;
-}
+
  
  
 

@@ -12,7 +12,7 @@ const MakeUser = ( { user, setUser } ) => {
         navigate('/create')
     }
     async function newChart ( ) {
-        let res=await axios.post('/create-chart')
+        let res=await axios.post('create-chart')
         let blankChart=res.data.chart
         let tempUser={...user}
         tempUser.charts=[blankChart._id]
