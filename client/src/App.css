@@ -453,18 +453,46 @@ nav {
   height: 40px;
   width: 40px;
 }
+#about-chartjs {
+  background-image: url('chartjs-logo.svg');
+  background-color: transparent;
+  border: none;
+  background-size: cover ;
+  height: 53px;
+  width: 53px;
+}
+#about-chartjs:hover {
+  outline: 2px solid black;
+  outline-offset: 2px;
+  border-radius: 5px;
+}
+#about-desmos {
+  background-image: url('desmos.png');
+  background-color: transparent;
+  border: none;
+  background-size: cover ;
+  height: 40px;
+  width: 40px;
+}
+#about-desmos:hover {
+  outline: 2px solid black;
+  outline-offset: 10px;
+  border-radius: 5px;
+}
 #about-home:hover {
-  height: 60px;
-  width: 60px;
+  outline: 2px solid black;
+  outline-offset: 10px;
+  border-radius: 5px;
 }
 #about-linkedin:hover {
-  height: 60px;
-  width: 60px;
+  outline: 2px solid black;
+  outline-offset: 10px;
+  border-radius: 5px;
 }
 #about-github:hover {
-  height: 60px;
-  width: 60px;
-  color: white;
+  outline: 2px solid black;
+  outline-offset: 10px;
+  border-radius: 5px;
 }
 .about-text {
   margin: 25px;
