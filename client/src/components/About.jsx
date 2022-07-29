@@ -39,8 +39,8 @@ const About = (  ) => {
                 </div>
             </div>
             <div id='about-sidebar'>
-                <button id='about-chartjs' onClick={(e)=>{window.location.href = "https://www.linkedin.com/in/james-jewitt/"}}></button>
-                <button id='about-desmos' onClick={(e)=>{window.location.href = "https://www.linkedin.com/in/james-jewitt/"}}></button>
+                <button id='about-chartjs' onClick={(e)=>{window.location.href = "https://www.chartjs.org/"}}></button>
+                <button id='about-desmos' onClick={(e)=>{window.location.href = "https://www.desmos.com/"}}></button>
                 <button id='about-home' onClick={(e)=>{route()}}></button>
                 <button id='about-github' onClick={(e)=>{window.location.href = "https://github.com/jamest7783/quickCharts"}}></button>
                 <button id='about-linkedin' onClick={(e)=>{window.location.href = "https://www.linkedin.com/in/james-jewitt/"}}></button>
