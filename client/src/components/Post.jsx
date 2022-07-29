@@ -15,10 +15,10 @@ const Post = ( { chart, setPost }  ) => {
         navigate('/viewpost')
     }
 
+
     return (
         <div>
             <div className='tile-header'>
-                <div className='userName-lib'>t</div>
                 <button className='tile-view' onClick={(e)=>{viewPost()}}>view</button>
             </div>
             <div>
