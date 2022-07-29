@@ -12,7 +12,7 @@ const Create = ( { chart, setChart, user } ) => {
     }
 
     async function getUserChart() {
-        const res = await axios.get(`charts/${user.charts[user.charts.length-1]}`)
+        const res = await axios.get(`/charts/${user.charts[user.charts.length-1]}`)
         let barChart = res.data.barChart 
         console.log( 'BARCHART=',barChart ) 
         setChart( barChart )
@@ -46,7 +46,7 @@ const Create = ( { chart, setChart, user } ) => {
         let tempChart = {...chart}
         tempChart.labels = temp.labels
         tempChart.datasets = temp.datasets
-        const updateChartInBackend = await axios.put(`update-chart/${user.charts[0]}`,tempChart)
+        const updateChartInBackend = await axios.put(`/update-chart/${user.charts[0]}`,tempChart)
         setChart( temp )
     }
     const returnDefaultX=(index)=>{
