@@ -49,6 +49,16 @@ const Create = ( { chart, setChart, user } ) => {
         const updateChartInBackend = await axios.put(`http://localhost:3001/update-chart/${user.charts[0]}`,tempChart)
         setChart( temp )
     }
+    const returnDefaultX=(index)=>{
+        let placeholder 
+        `${xVals[index]}`==='undefined' ? placeholder='x' : placeholder=`${xVals[index]}`
+        return placeholder
+    }
+    const returnDefaultY=(index)=>{
+        let placeholder 
+        `${yVals[index]}`==='undefined' ? placeholder='y' : placeholder=`${yVals[index]}`
+        return placeholder
+    }
 
     return (
         <div className='create-page'>
@@ -57,22 +67,22 @@ const Create = ( { chart, setChart, user } ) => {
 
             <div className="input"> 
                 <div className='set-title'>
-                    <input type='text' className='title' placeholder='title' onChange={(e)=>setTitle(e.target.value)}></input>
+                    <input type='text' className='title' placeholder={chart.datasets[0].label} onChange={(e)=>setTitle(e.target.value)}></input>
                 </div>
                 <div className='values-container'>
                     <div className='vals'>
                         <div className='xVals'>
                             <div className='title-x'>x</div>
-                            {emptyXVals.map((item,index)=>(<input className='x'type="text"placeholder={`${xVals[index]}`} onChange={(e)=>onChange(e,index)}></input>))}
+                            {emptyXVals.map((item,index)=>(<input className='x'type="text"placeholder={returnDefaultX(index)} onChange={(e)=>onChange(e,index)}></input>))}
                         </div>
                         <div className='yVals'>
                             <div className='title-x'>y</div>
-                            {emptyYVals.map((item,index)=>(<input className='y'type='text'placeholder={`${yVals[index]}`} onChange={(e)=>onChangeY(e,index)}></input>))}
+                            {emptyYVals.map((item,index)=>(<input className='y'type='text'placeholder={returnDefaultY(index)} onChange={(e)=>onChangeY(e,index)}></input>))}
                         </div>
                     </div>
                 </div>
                 <div id='save'>
-                    <button onClick={saveChart}>Save</button>
+                    <button className='save' onClick={saveChart}>save data set</button>
                 </div>
             </div>
             <div className='note-pad'>
@@ -83,7 +93,7 @@ const Create = ( { chart, setChart, user } ) => {
                 <button className='link' onClick={(e)=>{route('/profile')}}>profile</button>
             </div>
                 <div className='bar'> 
-                    <Bar id='canvas' data={ temp }/>
+                    <Bar  id='canvas' data={ temp } />
                 </div>
 
             </div>

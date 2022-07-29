@@ -41,6 +41,7 @@ const MakeUser = ( { user, setUser } ) => {
                     </div>
                 </form>
                 <div> 
+                <h3 id="create-profile">create profile</h3>
                 <input className='user-field'type='text' placeholder='  enter user name' 
                     onChange={(e)=> makeProfile(e)}></input>
                     <button className='username' onClick={(e)=>{newChart()}}>create new chart</button>
