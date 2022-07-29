@@ -17,7 +17,9 @@ const Post = ( { chart, setPost }  ) => {
 
     return (
         <div>
-            <button onClick={(e)=>{viewPost()}}>~VIEW-POST~</button>
+            <div className='tile-header'>
+                <button className='tile-view' onClick={(e)=>{viewPost()}}>view</button>
+            </div>
             <div>
                 <Bar data={data}/>
             </div>
