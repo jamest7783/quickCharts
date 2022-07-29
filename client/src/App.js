@@ -32,7 +32,7 @@ function App() {
     
   useEffect( ( ) => {
       const getCharts = async () => {
-          const res = await axios.get('http://localhost:3001/charts')
+          const res = await axios.get('/charts') // just ''  /charts  ''
           console.log(res)
           setCharts( res.data )
           console.log(res.data)

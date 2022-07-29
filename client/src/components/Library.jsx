@@ -15,7 +15,7 @@ const Library = ({ search, setSearch, charts, found, setFound, setChart, post, s
  
     console.log("search-->",search)
     async function retrieveCharts() { 
-        const res = await axios.get('http://localhost:3001/charts')
+        const res = await axios.get('/charts')
         setShelf( res.data.barCharts )
         setFound(res.data.barCharts ) 
     }
