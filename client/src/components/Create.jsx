@@ -6,6 +6,8 @@ import { Chart as ChartJS  } from 'chart.js/auto'
 
 const Create = ( { chart, setChart, user } ) => {
 
+    console.log('This is the chart here ----> ',chart)
+
     const navigate = useNavigate()
     const route=(path)=>{
         navigate(path)
