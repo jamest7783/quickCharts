@@ -9,12 +9,8 @@ const main = async (  ) => {
         {
             name: 'name',
             icon: ['stashed icon', 'stashed icon2'],
-        },
-        {
-            name: 'name2',
-            icon: ['stashed icon', 'stashed icon2'],
+            charts:[]
         }
-
     ]
     await User.insertMany( users )
     console.log( 'Created users' )

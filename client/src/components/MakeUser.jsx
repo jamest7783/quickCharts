@@ -4,7 +4,26 @@ import axios from 'axios'
 import { set } from 'mongoose'
 
   
-const MakeUser = ( { user, setUser } ) => {
+const MakeUser = ( { user, setUser, setChart } ) => {
+
+    
+    async function newAcct(){
+        let res =await axios.post('new-account' )
+        console.log( "new Account....",res)
+    }
+    
+    async function roster(){
+        let res=await axios.get('/community')  
+        console.log("RESPONSE",res.data.users)
+    }
+    
+    useEffect(()=>{newAcct()},[])
+    useEffect(()=>{roster()},[])
+
+
+
+
+
 
     let navigate = useNavigate()
 
@@ -13,8 +32,9 @@ const MakeUser = ( { user, setUser } ) => {
     }
     async function newChart ( ) {
         let res=await axios.post('/create-chart')
-        let blankChart=res.data.chart
+
         let tempUser={...user}
+        let blankChart=res.data.chart
         tempUser.charts=[blankChart._id]
         setUser(tempUser)
         goCreate()
@@ -32,6 +52,15 @@ const MakeUser = ( { user, setUser } ) => {
         navigate('/')
     }
 
+    
+
+
+
+
+
+   
+
+
     return (
         <div className='profile'>
             <div className='make-profile'>
@@ -48,6 +77,7 @@ const MakeUser = ( { user, setUser } ) => {
                     <button className='go-home'onClick={(e)=>{goHome()}}>home</button>
                 </div>
             </div>
+            <div></div>
         </div>
     )
 }

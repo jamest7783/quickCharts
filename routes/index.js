@@ -1,7 +1,9 @@
 const { Router } = require('express')
 const router = Router( )
 const { chartController } = require( '../controllers' )
+const { userController } = require( '../controllers' )
 const Chart = require( '../models/chart.js' )
+const User = require('../models/user.js')
 
 
 router.get(    '/charts',           chartController.getCharts   )
@@ -12,4 +14,11 @@ router.delete( '/delete-chart/:id', chartController.deleteChart )
 router.get(    '/find',             chartController.findChart   )
 
 
+router.get('/community',userController.getUsers )
+
+router.post('/new-account',userController.createAccount)
+
+
 module.exports = router; 
+
+

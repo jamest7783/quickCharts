@@ -33,9 +33,9 @@ function App() {
   useEffect( ( ) => {
       const getCharts = async () => {
           const res = await axios.get('charts')  
-          console.log(res)
+          //console.log(res)
           setCharts( res.data )
-          console.log(res.data)
+          //console.log(res.data)
       } 
       getCharts()
   },[])

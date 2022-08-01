@@ -3,9 +3,14 @@ const Schema = mongoose.Schema
 
 const User = new Schema(
     {
-        name: { type: String, required: true },
-        icon: { type: Array, required: true },
-        charts: [{ type: Schema.Types.ObjectId, ref: 'Chart', default: null }]
+        name: { type: String, required: true, default:"guest" },
+        icon: { type: String, required: true, default:'icon image path' },
+        charts: { type: Array, required:true, default: [{
+            labels:['a','b','c'],
+            datasets: [{label:'new-data',data:[1,2,3]}],
+            comments:[''],
+            likes:[0,0]
+        }]}
     },
     { 
         timestamps: true 
@@ -13,3 +18,4 @@ const User = new Schema(
 )
 
 module.exports = mongoose.model( 'User', User )
+

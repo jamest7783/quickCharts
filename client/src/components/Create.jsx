@@ -6,13 +6,13 @@ import { Chart as ChartJS  } from 'chart.js/auto'
 
 const Create = ( { chart, setChart, user } ) => {
 
-    console.log('This is the chart here ----> ',chart)
+    //console.log('This is the chart here ----> ',user)
 
     const navigate = useNavigate()
     const route=(path)=>{
         navigate(path)
     }
-
+    
     async function getUserChart() {
         const res = await axios.get(`/charts/${user.charts[user.charts.length-1]}`)
         let barChart = res.data.barChart 
@@ -20,6 +20,7 @@ const Create = ( { chart, setChart, user } ) => {
         setChart( barChart )
     }
     useEffect(()=>{getUserChart()},[])
+    
 
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
