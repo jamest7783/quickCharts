@@ -19,9 +19,25 @@ const createAccount=async(req,res)=>{
     }
 }
 
+const saveAccount = async ( req, res ) => {
+    try {
+        const { id } = req.params
+        const account = await User.findByIdAndUpdate( id, 
+                                                     req.body, 
+                                                     { new: true })
+        res.status( 200 ).json({ account })
+    } catch ( error ) {
+        return res.status( 500 ).send( error.message )
+    }
+}
+
+
+
+
 module.exports = {
     getUsers,
-    createAccount
+    createAccount,
+    saveAccount
 }
 
 

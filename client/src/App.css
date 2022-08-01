@@ -504,6 +504,22 @@ nav {
   margin-top: 110px;
   font-size: 75px;
 }
+.accounts {
+  border: 1px solid black;
+  grid-area: 2/3/2/3;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-around;
+  justify-content: space-around;
+}
+.account-tile {
+  margin: 5px;
+  border: 2px solid black;
+  height: 40px;
+  width: 100px;
+  border-radius: 7px;
+}
 
  
  

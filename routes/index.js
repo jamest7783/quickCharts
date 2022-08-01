@@ -18,6 +18,8 @@ router.get('/community',userController.getUsers )
 
 router.post('/new-account',userController.createAccount)
 
+router.put('/save-account/:id',userController.saveAccount)
+
 
 module.exports = router; 
 
