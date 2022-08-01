@@ -519,6 +519,13 @@ nav {
   height: 40px;
   width: 100px;
   border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account-tile:hover {
+  background-color: grey;
+  color: white;
 }
 
  
