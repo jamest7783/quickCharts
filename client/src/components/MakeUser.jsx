@@ -7,18 +7,15 @@ import { set } from 'mongoose'
 const MakeUser = ( { user, setUser, setChart } ) => {
 
     
-    async function newAcct(){
-        let res =await axios.post('new-account' )
-        console.log( "new Account....",res)
-    }
+    
     
     async function roster(){
         let res=await axios.get('/community')  
-        console.log("RESPONSE",res.data.users)
     }
     
-    useEffect(()=>{newAcct()},[])
+    //useEffect(()=>{newAcct()},[])
     useEffect(()=>{roster()},[])
+    //console.log("USER",user)
 
 
 
@@ -39,6 +36,18 @@ const MakeUser = ( { user, setUser, setChart } ) => {
         setUser(tempUser)
         goCreate()
     }  
+
+    async function newAcct(){
+        let res =await axios.post('new-account' )
+        setUser(res.data.newAcct)
+        console.log("response....",res.data.newAcct)
+        console.log("USER....",user)
+        navigate('/create')
+    }
+
+
+
+
 
     const continueAsAnonymous=()=>{
         setUser({name:'anonymous',icon:''})
@@ -75,6 +84,7 @@ const MakeUser = ( { user, setUser, setChart } ) => {
                     onChange={(e)=> makeProfile(e)}></input>
                     <button className='username' onClick={(e)=>{newChart()}}>create new chart</button>
                     <button className='go-home'onClick={(e)=>{goHome()}}>home</button>
+                    <button onClick={(e)=>{newAcct()}}>sign up</button>
                 </div>
             </div>
             <div></div>

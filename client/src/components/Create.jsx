@@ -6,7 +6,7 @@ import { Chart as ChartJS  } from 'chart.js/auto'
 
 const Create = ( { chart, setChart, user } ) => {
 
-    //console.log('This is the chart here ----> ',user)
+    console.log('This is the user here ----> ',user)
 
     const navigate = useNavigate()
     const route=(path)=>{
@@ -24,9 +24,9 @@ const Create = ( { chart, setChart, user } ) => {
 
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
-    const [ title, setTitle ] = useState( chart.datasets[0].label )
-    const [ xVals, setXVals ] = useState( chart.labels )
-    const [ yVals, setYVals ] = useState( chart.datasets[0].data )
+    const [ title, setTitle ] = useState( user.charts[0].datasets[0].label )
+    const [ xVals, setXVals ] = useState( user.charts[0].labels )
+    const [ yVals, setYVals ] = useState( user.charts[0].datasets[0].data )
     let temp = {
         labels: xVals,  
         datasets: [{
