@@ -109,7 +109,7 @@ nav {
   font-weight: bolder;
   
 }
-.user-field {
+#user-field {
   border-radius: 10px;
   border: 1px solid black;
   width: 300px;

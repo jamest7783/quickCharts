@@ -8,21 +8,12 @@ const MakeUser = ( { user, setUser, setChart } ) => {
 
     let [accounts,setAccounts]=useState([])
     
-    
     async function roster(){
         let res=await axios.get('/community')  
         setAccounts(res.data.users)
     }
  
-    
-    //useEffect(()=>{newAcct()},[])
     useEffect(()=>{roster()},[])
-    //console.log("USER",user)
-
-
-
-
-
 
     let navigate = useNavigate()
 
@@ -43,11 +34,8 @@ const MakeUser = ( { user, setUser, setChart } ) => {
         let res =await axios.post('new-account' )
         setUser(res.data.newAcct)
         console.log("new account....",user)
+        document.getElementById("user-field").value="" 
     }
-
-
-
-
 
     const continueAsAnonymous=()=>{
         setUser({name:'anonymous',icon:''})
@@ -56,28 +44,18 @@ const MakeUser = ( { user, setUser, setChart } ) => {
 
     async function saveAcct(){
         let res=await axios.put(`save-account/${user._id}`,user)
+        roster()
+        console.log("Saved account..... ",res.data.account)
     }
 
     const setName=(e)=>{
         let temp = {...user}
         temp.name=e.target.value
         setUser(temp)
-
     }
-
-    
-
     const goHome=()=>{
         navigate('/')
     }
-
- 
-
-
-
-
-   
-
 
     return (
         <div className='profile'>
@@ -94,12 +72,12 @@ const MakeUser = ( { user, setUser, setChart } ) => {
                 </form>
                 <div> 
                 <h3 id="create-profile">create profile</h3>
-                <input className='user-field'type='text' placeholder='  enter user name' 
+                <input id="user-field" type='text' placeholder=' guest' 
                     onChange={(e)=> setName(e)}></input>
                     <button className='username' onClick={(e)=>{newChart()}}>create new chart</button>
                     <button className='go-home'onClick={(e)=>{goHome()}}>home</button>
-                    <button onClick={(e)=>{newAcct()}}>make new account</button>
-                    <button onClick={(e)=>{saveAcct()}}>save account</button>
+                    <button onClick={(e)=>{newAcct()}}>newAcct</button>
+                    <button onClick={(e)=>{saveAcct()}}>saveAcct</button>
                     <button onClick={(e)=>{navigate('/create')}}>go to create</button>
                 </div>
             </div>
