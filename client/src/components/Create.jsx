@@ -12,6 +12,7 @@ const Create = ( { chart, setChart, user } ) => {
     const route=(path)=>{
         navigate(path)
     }
+    const [chartIndex,setChartIndex]=useState(0)
     /*  
     async function getUserChart() {
         const res = await axios.get(`/charts/${user.charts[user.charts.length-1]}`)
@@ -32,9 +33,9 @@ const Create = ( { chart, setChart, user } ) => {
 
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
-    const [ title, setTitle ] = useState( user.barCharts[0].datasets[0].label )
-    const [ xVals, setXVals ] = useState( user.barCharts[0].labels )
-    const [ yVals, setYVals ] = useState( user.barCharts[0].datasets[0].data )
+    const [ title, setTitle ] = useState( user.barCharts[chartIndex].datasets[0].label )
+    const [ xVals, setXVals ] = useState( user.barCharts[chartIndex].labels )
+    const [ yVals, setYVals ] = useState( user.barCharts[chartIndex].datasets[0].data )
     let temp = {
         labels: xVals,  
         datasets: [{
@@ -71,11 +72,17 @@ const Create = ( { chart, setChart, user } ) => {
         return placeholder
     }
 
+    const switchChart=(index)=>{
+        console.log(index)
+        setChartIndex(index)
+        console.log(user.barCharts[index])
+    }
+
     return (
         <div className='create-page'>
             <div className='chart-tiles'>Chart Tiles
-                {user.barCharts.map((chart)=>(
-                    <button>{chart._id}</button>
+                {user.barCharts.map((chart,index)=>(
+                    <button onClick={(e)=>{switchChart(index)}}>{chart._id}</button>
                 ))}
             
             
