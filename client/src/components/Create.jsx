@@ -12,7 +12,7 @@ const Create = ( { chart, setChart, user } ) => {
     const route=(path)=>{
         navigate(path)
     }
-    
+    /*  
     async function getUserChart() {
         const res = await axios.get(`/charts/${user.charts[user.charts.length-1]}`)
         let barChart = res.data.barChart 
@@ -20,6 +20,7 @@ const Create = ( { chart, setChart, user } ) => {
         setChart( barChart )
     }
     useEffect(()=>{getUserChart()},[])
+    */
 
     /*
     async function getUserCharts(){
@@ -72,8 +73,16 @@ const Create = ( { chart, setChart, user } ) => {
 
     return (
         <div className='create-page'>
+            <div className='chart-tiles'>Chart Tiles
+                {user.barCharts.map((chart)=>(
+                    <button>{chart._id}</button>
+                ))}
+            
+            
+            </div>
 
         <div className='pad'>
+            
 
             <div className="input"> 
                 <div className='set-title'>

@@ -527,7 +527,9 @@ nav {
   background-color: grey;
   color: white;
 }
-
+.chart-tiles {
+  grid-area: 1/2/1/2;
+}
  
  
 
