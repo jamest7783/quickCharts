@@ -6,7 +6,9 @@ import { set } from 'mongoose'
 /*
 1. scroll profiles 
 2. click on profiles || make new account
-3. 
+3. if made new account -> save
+4. choose chart from account charts array
+5. go to build 
 */
 
   
