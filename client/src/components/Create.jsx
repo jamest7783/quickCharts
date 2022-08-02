@@ -20,13 +20,20 @@ const Create = ( { chart, setChart, user } ) => {
         setChart( barChart )
     }
     useEffect(()=>{getUserChart()},[])
-    
+
+    /*
+    async function getUserCharts(){
+        user.barCharts.map((id)=>{
+            let res=await axios.get(`/charts/${id}`)
+        })
+    }
+    */
 
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
-    const [ title, setTitle ] = useState( user.charts[0].datasets[0].label )
-    const [ xVals, setXVals ] = useState( user.charts[0].labels )
-    const [ yVals, setYVals ] = useState( user.charts[0].datasets[0].data )
+    const [ title, setTitle ] = useState( user.barCharts[0].datasets[0].label )
+    const [ xVals, setXVals ] = useState( user.barCharts[0].labels )
+    const [ yVals, setYVals ] = useState( user.barCharts[0].datasets[0].data )
     let temp = {
         labels: xVals,  
         datasets: [{

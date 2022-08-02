@@ -17,7 +17,7 @@ const MakeUser = ( { user, setUser, setChart } ) => {
     let [accounts,setAccounts]=useState([])
     
     async function roster(){
-        let res=await axios.get('/community')  
+        let res=await axios.get('/community')
         setAccounts(res.data.users)
     }
  
@@ -73,7 +73,7 @@ const MakeUser = ( { user, setUser, setChart } ) => {
     async function newBlankChart(){
         console.log("User before new chart... ",user)
         let res=await axios.post(`/account/${user._id}/barcharts`)
-        console.log("User after passed New Chart.... ",res)
+        console.log("User after passed New Chart.... ",res.data)
 
     }
 
