@@ -66,8 +66,15 @@ const MakeUser = ( { user, setUser, setChart } ) => {
     }
 
     const chooseAcctTile=(tile)=>{
-        console.log(tile)
+        console.log("Chosen Tile...",tile)
         setUser(tile)
+    }
+
+    async function newBlankChart(){
+        console.log("User before new chart... ",user)
+        let res=await axios.post(`/account/${user._id}/barcharts`)
+        console.log("User after passed New Chart.... ",res)
+
     }
 
     return (
@@ -94,6 +101,7 @@ const MakeUser = ( { user, setUser, setChart } ) => {
                     <button onClick={(e)=>{newAcct()}}>newAcct</button>
                     <button onClick={(e)=>{saveAcct()}}>saveAcct</button>
                     <button onClick={(e)=>{navigate('/create')}}>go to create</button>
+                    <button onClick={(e)=>{newBlankChart()}}>new canvas</button>
                 </div>
             </div>
             <div></div>
