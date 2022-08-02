@@ -7,12 +7,13 @@ import { Chart as ChartJS  } from 'chart.js/auto'
 const Create = ( { chart, setChart, user } ) => {
 
     console.log('This is the user here ----> ',user)
+    console.log('This is the chart here ----> ',chart)
 
     const navigate = useNavigate()
     const route=(path)=>{
         navigate(path)
     }
-    const [chartIndex,setChartIndex]=useState(0)
+
     /*  
     async function getUserChart() {
         const res = await axios.get(`/charts/${user.charts[user.charts.length-1]}`)
@@ -31,11 +32,12 @@ const Create = ( { chart, setChart, user } ) => {
     }
     */
 
+
     /* create temporary data-set for chart display, 
        will "onSave" .put -> user's chart in back-end */
-    const [ title, setTitle ] = useState( user.barCharts[chartIndex].datasets[0].label )
-    const [ xVals, setXVals ] = useState( user.barCharts[chartIndex].labels )
-    const [ yVals, setYVals ] = useState( user.barCharts[chartIndex].datasets[0].data )
+    const [ title, setTitle ] = useState( chart.datasets[0].label )
+    const [ xVals, setXVals ] = useState( chart.labels )
+    const [ yVals, setYVals ] = useState( chart.datasets[0].data )
     let temp = {
         labels: xVals,  
         datasets: [{
@@ -72,17 +74,13 @@ const Create = ( { chart, setChart, user } ) => {
         return placeholder
     }
 
-    const switchChart=(index)=>{
-        console.log(index)
-        setChartIndex(index)
-        console.log(user.barCharts[index])
-    }
+     
 
     return (
         <div className='create-page'>
             <div className='chart-tiles'>Chart Tiles
                 {user.barCharts.map((chart,index)=>(
-                    <button onClick={(e)=>{switchChart(index)}}>{chart._id}</button>
+                    <button onClick={(e)=>{setChart(chart)}}>{chart._id}</button>
                 ))}
             
             
@@ -93,7 +91,7 @@ const Create = ( { chart, setChart, user } ) => {
 
             <div className="input"> 
                 <div className='set-title'>
-                    <input type='text' className='title' placeholder={chart.datasets[0].label} onChange={(e)=>setTitle(e.target.value)}></input>
+                    <input type='text' className='title' placeholder={ chart.datasets[0].label } onChange={(e)=>setTitle(e.target.value)}></input>
                 </div>
                 <div className='values-container'>
                     <div className='vals'>

@@ -12,7 +12,7 @@ import { set } from 'mongoose'
 */
 
   
-const MakeUser = ( { user, setUser, setChart } ) => {
+const MakeUser = ( { user, setUser, setChart, chart } ) => {
 
     let [accounts,setAccounts]=useState([])
     
@@ -26,6 +26,9 @@ const MakeUser = ( { user, setUser, setChart } ) => {
     let navigate = useNavigate()
 
     let goCreate = () => {
+        console.log("setting to .... ", user.barCharts[0])
+        setChart(user.barCharts[0])
+        console.log("After setting, chart is... ",chart)
         navigate('/create')
     }
     async function newChart ( ) {
@@ -100,7 +103,7 @@ const MakeUser = ( { user, setUser, setChart } ) => {
                     <button className='go-home'onClick={(e)=>{goHome()}}>home</button>
                     <button onClick={(e)=>{newAcct()}}>newAcct</button>
                     <button onClick={(e)=>{saveAcct()}}>saveAcct</button>
-                    <button onClick={(e)=>{navigate('/create')}}>go to create</button>
+                    <button onClick={(e)=>{goCreate()}}>go to create</button>
                     <button onClick={(e)=>{newBlankChart()}}>new canvas</button>
                 </div>
             </div>
