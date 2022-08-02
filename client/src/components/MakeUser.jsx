@@ -3,6 +3,12 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { set } from 'mongoose'
 
+/*
+1. scroll profiles 
+2. click on profiles || make new account
+3. 
+*/
+
   
 const MakeUser = ( { user, setUser, setChart } ) => {
 
@@ -57,11 +63,18 @@ const MakeUser = ( { user, setUser, setChart } ) => {
         navigate('/')
     }
 
+    const chooseAcctTile=(tile)=>{
+        console.log(tile)
+        setUser(tile)
+    }
+
     return (
         <div className='profile'>
             <div className='accounts'>
                 {accounts.map((acct)=>(
-                    <div className='account-tile'>{acct.name}</div>
+                    <div className='account-tile'>{acct.name}
+                        <button onClick={(e)=>{chooseAcctTile(acct)}}>chose</button>
+                    </div>
                     ))}
             </div>
             <div className='make-profile'>
